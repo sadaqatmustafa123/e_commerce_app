@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/configs/app_vectors.dart';
 import 'package:e_commerce_app/core/configs/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -10,7 +11,9 @@ class SplashPage extends StatelessWidget {
     return Scaffold(
         backgroundColor: AppColors.primary,
         body: Center(
-          child: SvgPicture.asset(AppVector),
+          child: SvgPicture.asset(
+            AppVectors.appLogo,
+          ),
         ));
   }
 }
