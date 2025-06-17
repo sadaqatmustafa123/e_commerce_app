@@ -1,8 +1,10 @@
 import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
+import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
 import 'package:e_commerce_app/common/widgets/button/login_with_social_button.dart';
 import 'package:e_commerce_app/core/configs/app_logos.dart';
 import 'package:e_commerce_app/presentation/signin/pages/enter_password.dart';
+import 'package:e_commerce_app/presentation/signin/pages/forgot_password.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +14,11 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const BasicAppbar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
-          vertical: 90,
+          vertical: 00,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,31 +39,31 @@ class SignUpPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            _createAccount(context),
-            const SizedBox(
-              height: 20,
-            ),
-            LoginWithSocialButton(
-              onTapped: () {},
-              logoName: AppLogos.appleLogo,
-              socialMediaName: "Apple",
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            LoginWithSocialButton(
-              onTapped: () {},
-              logoName: AppLogos.googleLogo,
-              socialMediaName: "Google",
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            LoginWithSocialButton(
-              logoName: AppLogos.facebookLogo,
-              socialMediaName: "Facebook",
-              onTapped: () {},
-            ),
+            _forgotPassword(context),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // LoginWithSocialButton(
+            //   onTapped: () {},
+            //   logoName: AppLogos.appleLogo,
+            //   socialMediaName: "Apple",
+            // ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // LoginWithSocialButton(
+            //   onTapped: () {},
+            //   logoName: AppLogos.googleLogo,
+            //   socialMediaName: "Google",
+            // ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
+            // LoginWithSocialButton(
+            //   logoName: AppLogos.facebookLogo,
+            //   socialMediaName: "Facebook",
+            //   onTapped: () {},
+            // ),
           ],
         ),
       ),
@@ -85,19 +88,20 @@ class SignUpPage extends StatelessWidget {
     );
   }
 
-  Widget _createAccount(BuildContext context) {
+  Widget _forgotPassword(BuildContext context) {
     return RichText(
       text: TextSpan(
         children: [
-          const TextSpan(
-            text: "Don't you have an account? ",
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          const TextSpan(text: "Forgot password? "),
           TextSpan(
-            text: "Create one",
-            recognizer: TapGestureRecognizer()..onTap = () {},
+            text: "Reset",
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                AppNavigator.push(
+                  context,
+                  const ForgotPasswordPage(),
+                );
+              },
             style: const TextStyle(
               fontWeight: FontWeight.bold,
             ),
