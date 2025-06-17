@@ -26,6 +26,7 @@ class SigninPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
+            _createAccount(context),
           ],
         ),
       ),
@@ -43,9 +44,24 @@ class SigninPage extends StatelessWidget {
   }
 
   Widget _emailField(BuildContext context) {
-    return TextField(
-      decoration: const InputDecoration(
+    return const TextField(
+      decoration: InputDecoration(
         hintText: "Enter email",
+      ),
+    );
+  }
+
+  Widget _createAccount(BuildContext context) {
+    return RichText(
+      text: const TextSpan(
+        children: [
+          TextSpan(text: "Don't you have an account? "),
+          TextSpan(
+              text: "Create one",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              )),
+        ],
       ),
     );
   }
