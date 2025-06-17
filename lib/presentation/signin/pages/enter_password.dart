@@ -2,8 +2,8 @@ import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+class EnterPasswordPage extends StatelessWidget {
+  const EnterPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class SigninPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            _emailField(
+            _passwordField(
               context,
             ),
             const SizedBox(
@@ -32,7 +32,7 @@ class SigninPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            _createAccount(context),
+            _forgotPassword(context),
           ],
         ),
       ),
@@ -49,21 +49,21 @@ class SigninPage extends StatelessWidget {
     );
   }
 
-  Widget _emailField(BuildContext context) {
+  Widget _passwordField(BuildContext context) {
     return const TextField(
       decoration: InputDecoration(
-        hintText: "Enter email",
+        hintText: "Enter password",
       ),
     );
   }
 
-  Widget _createAccount(BuildContext context) {
+  Widget _forgotPassword(BuildContext context) {
     return RichText(
       text: TextSpan(
         children: [
-          const TextSpan(text: "Don't you have an account? "),
+          const TextSpan(text: "Forgot password? "),
           TextSpan(
-            text: "Create one",
+            text: "Reset",
             recognizer: TapGestureRecognizer()..onTap = () {},
             style: const TextStyle(
               fontWeight: FontWeight.bold,
@@ -79,11 +79,5 @@ class SigninPage extends StatelessWidget {
       onPressed: () {},
       title: "Continue",
     );
-  }
-
-  Widget _signInWith() {
-    return ElevatedButton(onPressed
-    : (){},
-     child: );
   }
 }
