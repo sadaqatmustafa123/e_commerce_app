@@ -6,8 +6,8 @@ import 'package:e_commerce_app/presentation/signin/pages/enter_password.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class SigninPage extends StatelessWidget {
 
   Widget _signinText(BuildContext context) {
     return const Text(
-      "Sign in",
+      "Create Account",
       style: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.bold,

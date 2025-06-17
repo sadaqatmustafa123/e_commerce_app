@@ -1,12 +1,9 @@
-import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
-import 'package:e_commerce_app/presentation/signin/pages/forgot_password.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class EnterPasswordPage extends StatelessWidget {
-  const EnterPasswordPage({super.key});
+class ForgotPasswordPage extends StatelessWidget {
+  const ForgotPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +33,6 @@ class EnterPasswordPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            _forgotPassword(context),
           ],
         ),
       ),
@@ -45,7 +41,7 @@ class EnterPasswordPage extends StatelessWidget {
 
   Widget _signinText(BuildContext context) {
     return const Text(
-      "Sign in",
+      "Forgot Password",
       style: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.bold,
@@ -57,29 +53,6 @@ class EnterPasswordPage extends StatelessWidget {
     return const TextField(
       decoration: InputDecoration(
         hintText: "Enter password",
-      ),
-    );
-  }
-
-  Widget _forgotPassword(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        children: [
-          const TextSpan(text: "Forgot password? "),
-          TextSpan(
-            text: "Reset",
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                AppNavigator.push(
-                  context,
-                  const ForgotPasswordPage(),
-                );
-              },
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
       ),
     );
   }
