@@ -40,30 +40,6 @@ class SignUpPage extends StatelessWidget {
               height: 20,
             ),
             _forgotPassword(context),
-            // const SizedBox(
-            //   height: 20,
-            // ),
-            // LoginWithSocialButton(
-            //   onTapped: () {},
-            //   logoName: AppLogos.appleLogo,
-            //   socialMediaName: "Apple",
-            // ),
-            // const SizedBox(
-            //   height: 20,
-            // ),
-            // LoginWithSocialButton(
-            //   onTapped: () {},
-            //   logoName: AppLogos.googleLogo,
-            //   socialMediaName: "Google",
-            // ),
-            // const SizedBox(
-            //   height: 20,
-            // ),
-            // LoginWithSocialButton(
-            //   logoName: AppLogos.facebookLogo,
-            //   socialMediaName: "Facebook",
-            //   onTapped: () {},
-            // ),
           ],
         ),
       ),
