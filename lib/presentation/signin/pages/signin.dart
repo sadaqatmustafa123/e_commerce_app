@@ -12,12 +12,19 @@ class SigninPage extends StatelessWidget {
           vertical: 90,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _signinText(
               context,
             ),
+            const SizedBox(
+              height: 20,
+            ),
             _emailField(
               context,
+            ),
+            const SizedBox(
+              height: 20,
             ),
           ],
         ),
@@ -36,6 +43,10 @@ class SigninPage extends StatelessWidget {
   }
 
   Widget _emailField(BuildContext context) {
-    return TextField();
+    return TextField(
+      decoration: const InputDecoration(
+        hintText: "Enter email",
+      ),
+    );
   }
 }
