@@ -1,4 +1,6 @@
 import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
+import 'package:e_commerce_app/common/widgets/button/login_with_social_button.dart';
+import 'package:e_commerce_app/core/configs/app_logos.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -33,6 +35,30 @@ class SigninPage extends StatelessWidget {
               height: 20,
             ),
             _createAccount(context),
+            const SizedBox(
+              height: 20,
+            ),
+            LoginWithSocialButton(
+              onTapped: () {},
+              logoName: AppLogos.appleLogo,
+              socialMediaName: "Apple",
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            LoginWithSocialButton(
+              onTapped: () {},
+              logoName: AppLogos.googleLogo,
+              socialMediaName: "Google",
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            LoginWithSocialButton(
+              logoName: AppLogos.facebookLogo,
+              socialMediaName: "Facebook",
+              onTapped: () {},
+            ),
           ],
         ),
       ),
@@ -79,11 +105,5 @@ class SigninPage extends StatelessWidget {
       onPressed: () {},
       title: "Continue",
     );
-  }
-
-  Widget _signInWith() {
-    return ElevatedButton(onPressed
-    : (){},
-     child: );
   }
 }

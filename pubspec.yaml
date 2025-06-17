@@ -65,6 +65,7 @@ flutter:
     - assets/fonts/
     - assets/vectors/
     - assets/images/
+    - assets/logos/
 
 
   #   - images/a_dot_ham.jpeg
