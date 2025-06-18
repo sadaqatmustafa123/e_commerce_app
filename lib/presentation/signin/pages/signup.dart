@@ -1,8 +1,6 @@
 import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
-import 'package:e_commerce_app/common/widgets/button/login_with_social_button.dart';
-import 'package:e_commerce_app/core/configs/app_logos.dart';
 import 'package:e_commerce_app/presentation/signin/pages/enter_password.dart';
 import 'package:e_commerce_app/presentation/signin/pages/forgot_password.dart';
 import 'package:flutter/gestures.dart';
@@ -29,7 +27,25 @@ class SignUpPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
+            _firstNameField(
+              context,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            _lastNameField(
+              context,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             _emailField(
+              context,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            _passwordField(
               context,
             ),
             const SizedBox(
@@ -56,10 +72,34 @@ class SignUpPage extends StatelessWidget {
     );
   }
 
+  Widget _passwordField(BuildContext context) {
+    return const TextField(
+      decoration: InputDecoration(
+        hintText: "Password",
+      ),
+    );
+  }
+
   Widget _emailField(BuildContext context) {
     return const TextField(
       decoration: InputDecoration(
-        hintText: "Enter email",
+        hintText: "Email address",
+      ),
+    );
+  }
+
+  Widget _firstNameField(BuildContext context) {
+    return const TextField(
+      decoration: InputDecoration(
+        hintText: "Firstname",
+      ),
+    );
+  }
+
+  Widget _lastNameField(BuildContext context) {
+    return const TextField(
+      decoration: InputDecoration(
+        hintText: "Lastname",
       ),
     );
   }
