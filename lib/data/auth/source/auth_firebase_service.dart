@@ -17,7 +17,7 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
       var returnedData = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
               email: user.email!, password: user.password!);
-      FirebaseFirestore.instance
+      await FirebaseFirestore.instance
           .collection("Users")
           .doc(
             returnedData.user!.uid,
@@ -27,8 +27,21 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
           'firstName': user.firstName,
           'lastName': user.lastName,
           'email': user.email,
+          'gender': user.gender,
+          'age': user.age,
         },
       );
-    } catch (e) {}
+      return const Right("Sign up was successfull");
+    } on FirebaseAuthException catch (e) {
+      String message = "";
+      {
+        if (e.code == 'weak-password') {
+          message = 'The password provided is too weak.';
+        } else if (e.code == 'email-already-in-use') {
+          message = 'An account already exists with the same email address.';
+        }
+      }
+      return Left(message);
+    }
   }
 }
