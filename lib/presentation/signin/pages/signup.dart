@@ -3,6 +3,7 @@ import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
 import 'package:e_commerce_app/presentation/signin/pages/enter_password.dart';
 import 'package:e_commerce_app/presentation/signin/pages/forgot_password.dart';
+import 'package:e_commerce_app/presentation/signin/pages/signin.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -55,7 +56,7 @@ class SignUpPage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            _forgotPassword(context),
+            _haveAlreadyAccount(context),
           ],
         ),
       ),
@@ -104,18 +105,18 @@ class SignUpPage extends StatelessWidget {
     );
   }
 
-  Widget _forgotPassword(BuildContext context) {
+  Widget _haveAlreadyAccount(BuildContext context) {
     return RichText(
       text: TextSpan(
         children: [
-          const TextSpan(text: "Forgot password? "),
+          const TextSpan(text: "Already have an account? "),
           TextSpan(
-            text: "Reset",
+            text: "Sign in",
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 AppNavigator.push(
                   context,
-                  const ForgotPasswordPage(),
+                  const SigninPage(),
                 );
               },
             style: const TextStyle(
