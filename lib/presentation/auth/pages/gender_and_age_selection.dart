@@ -1,4 +1,6 @@
 import 'package:e_commerce_app/common/helper/bottomsheet/app_bottom_sheet.dart';
+import 'package:e_commerce_app/presentation/auth/bloc/ages_display_state.dart';
+import 'package:e_commerce_app/presentation/auth/widgets/ages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -6,7 +8,7 @@ import '../../../common/widgets/appbar/app_bar.dart';
 import '../../../core/configs/themes/app_colors.dart';
 import '../../../data/auth/models/user_creation_req.dart';
 import '../../../domain/usecases/signup_usecase.dart';
-import '../bloc/age_Selection_cubit.dart';
+import '../bloc/age_selection_cubit.dart';
 import '../bloc/ages_display_cubit.dart';
 import '../bloc/gender_seletion_cubit.dart';
 
@@ -23,13 +25,13 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
           BlocProvider(create: (context) => GenderSelectionCubit()),
           BlocProvider(create: (context) => AgeSelectionCubit()),
           BlocProvider(create: (context) => AgesDisplayCubit()),
-          BlocProvider(create: (context) => ButtonStateCubit())
+          // BlocProvider(create: (context) => ButtonStateCubit())
         ],
-        child: BlocListener<ButtonStateCubit, ButtonState>(
+        child: BlocListener<AgesDisplayCubit, AgesDisplayState>(
           listener: (context, state) {
-            if (state is ButtonFailureState) {
+            if (state is AgesLoadFailure) {
               var snackbar = SnackBar(
-                content: Text(state.errorMessage),
+                content: Text(state.message),
                 behavior: SnackBarBehavior.floating,
               );
               ScaffoldMessenger.of(context).showSnackBar(snackbar);
@@ -60,7 +62,7 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              _finishButton(context)
+              // _finishButton(context)
             ],
           ),
         ),
@@ -152,26 +154,26 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
     });
   }
 
-  Widget _finishButton(BuildContext context) {
-    return Container(
-      height: 100,
-      color: AppColors.secondBackground,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Center(
-        child: Builder(builder: (context) {
-          return BasicReactiveButton(
-              onPressed: () {
-                userCreationReq.gender =
-                    context.read<GenderSelectionCubit>().selectedIndex;
-                userCreationReq.age =
-                    context.read<AgeSelectionCubit>().selectedAge;
-                context
-                    .read<ButtonStateCubit>()
-                    .execute(usecase: SignupUsecase(), params: userCreationReq);
-              },
-              title: 'Finish');
-        }),
-      ),
-    );
-  }
+  // Widget _finishButton(BuildContext context) {
+  //   return Container(
+  //     height: 100,
+  //     color: AppColors.secondBackground,
+  //     padding: const EdgeInsets.symmetric(horizontal: 16),
+  //     child: Center(
+  //       child: Builder(builder: (context) {
+  //         return BasicReactiveButton(
+  //             onPressed: () {
+  //               userCreationReq.gender =
+  //                   context.read<GenderSelectionCubit>().selectedIndex;
+  //               userCreationReq.age =
+  //                   context.read<AgeSelectionCubit>().selectedAge;
+  //               context
+  //                   .read<ButtonStateCubit>()
+  //                   .execute(usecase: SignupUsecase(), params: userCreationReq);
+  //             },
+  //             title: 'Finish');
+  //       }),
+  //     ),
+  //   );
+  // }
 }
