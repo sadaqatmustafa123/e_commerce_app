@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/common/helper/bottomsheet/app_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -126,7 +127,7 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
     return BlocBuilder<AgeSelectionCubit, String>(builder: (context, state) {
       return GestureDetector(
         onTap: () {
-          AppBottomsheet.display(
+          AppBottomSheet.display(
               context,
               MultiBlocProvider(providers: [
                 BlocProvider.value(

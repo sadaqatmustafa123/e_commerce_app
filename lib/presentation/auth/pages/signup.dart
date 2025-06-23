@@ -1,8 +1,10 @@
 import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
+import 'package:e_commerce_app/data/auth/models/user_creation_req.dart';
 import 'package:e_commerce_app/presentation/auth/pages/enter_password.dart';
 import 'package:e_commerce_app/presentation/auth/pages/forgot_password.dart';
+import 'package:e_commerce_app/presentation/auth/pages/gender_and_age_selection.dart';
 import 'package:e_commerce_app/presentation/auth/pages/signin.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -133,7 +135,10 @@ class SignUpPage extends StatelessWidget {
       onPressed: () {
         AppNavigator.push(
           context,
-          const EnterPasswordPage(),
+          GenderAndAgeSelectionPage(
+            userCreationReq: UserCreationReq(
+                email: "email", firstName: "", lastName: "", password: ""),
+          ),
         );
       },
       title: "Continue",
