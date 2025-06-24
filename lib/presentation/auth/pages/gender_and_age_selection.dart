@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/common/bloc/button/button_state.dart';
 import 'package:e_commerce_app/common/helper/bottomsheet/app_bottom_sheet.dart';
 import 'package:e_commerce_app/presentation/auth/bloc/ages_display_state.dart';
 import 'package:e_commerce_app/presentation/auth/widgets/ages.dart';
@@ -29,14 +30,22 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
           BlocProvider(create: (context) => AgesDisplayCubit()),
           BlocProvider(create: (context) => ButtonStateCubit()),
         ],
-        child: BlocListener<AgesDisplayCubit, AgesDisplayState>(
+        child: BlocListener<ButtonStateCubit, ButtonState>(
           listener: (context, state) {
-            if (state is AgesLoadFailure) {
+            if (state is ButtonFailureState) {
               var snackbar = SnackBar(
-                content: Text(state.message),
+                content: Text(
+                  state.errorMessage,
+                ),
                 behavior: SnackBarBehavior.floating,
               );
               ScaffoldMessenger.of(context).showSnackBar(snackbar);
+            }
+            if (state is ButtonSuccessState) {
+              var successSnackbar = const SnackBar(
+                content: Text("Sign up successful"),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(successSnackbar);
             }
           },
           child: Column(
