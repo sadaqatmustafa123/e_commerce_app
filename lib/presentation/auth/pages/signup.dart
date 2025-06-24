@@ -18,7 +18,7 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const BasicAppbar(),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
           vertical: 00,
@@ -143,7 +143,11 @@ class SignUpPage extends StatelessWidget {
           context,
           GenderAndAgeSelectionPage(
             userCreationReq: UserCreationReq(
-                email: "email", firstName: "", lastName: "", password: ""),
+              email: _emailCon.text,
+              firstName: _firstNameCon.text,
+              lastName: _lastNameCon.text,
+              password: _passwordCon.text,
+            ),
           ),
         );
       },

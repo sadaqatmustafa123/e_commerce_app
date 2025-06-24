@@ -12,7 +12,7 @@ import '../../../data/auth/models/user_creation_req.dart';
 import '../../../domain/usecases/signup_usecase.dart';
 import '../bloc/age_selection_cubit.dart';
 import '../bloc/ages_display_cubit.dart';
-import '../bloc/gender_seletion_cubit.dart';
+import '../bloc/gender_selection_cubit.dart';
 
 class GenderAndAgeSelectionPage extends StatelessWidget {
   final UserCreationReq userCreationReq;
@@ -27,7 +27,7 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
           BlocProvider(create: (context) => GenderSelectionCubit()),
           BlocProvider(create: (context) => AgeSelectionCubit()),
           BlocProvider(create: (context) => AgesDisplayCubit()),
-          // BlocProvider(create: (context) => ButtonStateCubit())
+          BlocProvider(create: (context) => ButtonStateCubit()),
         ],
         child: BlocListener<AgesDisplayCubit, AgesDisplayState>(
           listener: (context, state) {

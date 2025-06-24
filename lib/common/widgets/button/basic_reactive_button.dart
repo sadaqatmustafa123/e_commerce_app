@@ -30,16 +30,14 @@ class BasicReactiveButton extends StatelessWidget {
 
   Widget _loading() {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: null,
       style: ElevatedButton.styleFrom(
         minimumSize: Size.fromHeight(height ?? 50),
       ),
-      child: content ??
-          Text(
-            title,
-            style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w600),
-          ),
+      child: Container(
+          height: height ?? 50,
+          alignment: Alignment.center,
+          child: const CircularProgressIndicator()),
     );
   }
 

@@ -10,7 +10,7 @@ class Ages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height / 2.2,
       child: BlocBuilder<AgesDisplayCubit, AgesDisplayState>(
         builder: (context, state) {

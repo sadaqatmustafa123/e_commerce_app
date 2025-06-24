@@ -15,7 +15,7 @@ class SigninPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
           vertical: 90,
@@ -104,7 +104,7 @@ class SigninPage extends StatelessWidget {
               ..onTap = () {
                 AppNavigator.push(
                   context,
-                  const SignUpPage(),
+                  SignUpPage(),
                 );
               },
             style: const TextStyle(
