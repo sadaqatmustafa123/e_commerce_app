@@ -176,8 +176,6 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
           return BasicReactiveButton(
               onPressed: () {
                 final ageSelectionCubit = context.read<AgeSelectionCubit>();
-
-                // Check if age is selected
                 if (!ageSelectionCubit.isAgeSelected()) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
