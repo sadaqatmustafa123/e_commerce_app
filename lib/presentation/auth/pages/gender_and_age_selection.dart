@@ -1,6 +1,5 @@
 import 'package:e_commerce_app/common/bloc/button/button_state.dart';
 import 'package:e_commerce_app/common/helper/bottomsheet/app_bottom_sheet.dart';
-import 'package:e_commerce_app/presentation/auth/bloc/ages_display_state.dart';
 import 'package:e_commerce_app/presentation/auth/widgets/ages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -176,10 +175,22 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
         child: Builder(builder: (context) {
           return BasicReactiveButton(
               onPressed: () {
+                final ageSelectionCubit = context.read<AgeSelectionCubit>();
+
+                // Check if age is selected
+                if (!ageSelectionCubit.isAgeSelected()) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Please select age'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                  return;
+                }
+
                 userCreationReq.gender =
                     context.read<GenderSelectionCubit>().selectedIndex;
-                userCreationReq.age =
-                    context.read<AgeSelectionCubit>().selectedAge;
+                userCreationReq.age = ageSelectionCubit.selectedAge;
                 context
                     .read<ButtonStateCubit>()
                     .execute(usecase: SignupUsecase(), params: userCreationReq);

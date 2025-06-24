@@ -9,4 +9,13 @@ class AgeSelectionCubit extends Cubit<String> {
     selectedAge = age;
     emit(selectedAge);
   }
+
+  bool isAgeSelected() {
+    return selectedAge.isNotEmpty && selectedAge != 'Age Range';
+  }
+
+  void resetSelection() {
+    selectedAge = '';
+    emit('Age Range');
+  }
 }
