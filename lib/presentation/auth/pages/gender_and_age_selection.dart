@@ -4,7 +4,9 @@ import 'package:e_commerce_app/presentation/auth/widgets/ages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common/bloc/button/button_state_cubit.dart';
 import '../../../common/widgets/appbar/app_bar.dart';
+import '../../../common/widgets/button/basic_reactive_button.dart';
 import '../../../core/configs/themes/app_colors.dart';
 import '../../../data/auth/models/user_creation_req.dart';
 import '../../../domain/usecases/signup_usecase.dart';
@@ -62,7 +64,9 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              // _finishButton(context)
+              _finishButton(
+                context,
+              ),
             ],
           ),
         ),
@@ -154,26 +158,26 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
     });
   }
 
-  // Widget _finishButton(BuildContext context) {
-  //   return Container(
-  //     height: 100,
-  //     color: AppColors.secondBackground,
-  //     padding: const EdgeInsets.symmetric(horizontal: 16),
-  //     child: Center(
-  //       child: Builder(builder: (context) {
-  //         return BasicReactiveButton(
-  //             onPressed: () {
-  //               userCreationReq.gender =
-  //                   context.read<GenderSelectionCubit>().selectedIndex;
-  //               userCreationReq.age =
-  //                   context.read<AgeSelectionCubit>().selectedAge;
-  //               context
-  //                   .read<ButtonStateCubit>()
-  //                   .execute(usecase: SignupUsecase(), params: userCreationReq);
-  //             },
-  //             title: 'Finish');
-  //       }),
-  //     ),
-  //   );
-  // }
+  Widget _finishButton(BuildContext context) {
+    return Container(
+      height: 100,
+      color: AppColors.secondBackground,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Center(
+        child: Builder(builder: (context) {
+          return BasicReactiveButton(
+              onPressed: () {
+                userCreationReq.gender =
+                    context.read<GenderSelectionCubit>().selectedIndex;
+                userCreationReq.age =
+                    context.read<AgeSelectionCubit>().selectedAge;
+                context
+                    .read<ButtonStateCubit>()
+                    .execute(usecase: SignupUsecase(), params: userCreationReq);
+              },
+              title: 'Finish');
+        }),
+      ),
+    );
+  }
 }

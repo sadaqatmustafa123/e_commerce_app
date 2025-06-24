@@ -2,15 +2,17 @@ import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
 import 'package:e_commerce_app/data/auth/models/user_creation_req.dart';
-import 'package:e_commerce_app/presentation/auth/pages/enter_password.dart';
-import 'package:e_commerce_app/presentation/auth/pages/forgot_password.dart';
 import 'package:e_commerce_app/presentation/auth/pages/gender_and_age_selection.dart';
 import 'package:e_commerce_app/presentation/auth/pages/signin.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+  SignUpPage({super.key});
+  final TextEditingController _firstNameCon = TextEditingController();
+  final TextEditingController _lastNameCon = TextEditingController();
+  final TextEditingController _emailCon = TextEditingController();
+  final TextEditingController _passwordCon = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -76,32 +78,36 @@ class SignUpPage extends StatelessWidget {
   }
 
   Widget _passwordField(BuildContext context) {
-    return const TextField(
-      decoration: InputDecoration(
+    return TextField(
+      controller: _passwordCon,
+      decoration: const InputDecoration(
         hintText: "Password",
       ),
     );
   }
 
   Widget _emailField(BuildContext context) {
-    return const TextField(
-      decoration: InputDecoration(
+    return TextField(
+      controller: _emailCon,
+      decoration: const InputDecoration(
         hintText: "Email address",
       ),
     );
   }
 
   Widget _firstNameField(BuildContext context) {
-    return const TextField(
-      decoration: InputDecoration(
+    return TextField(
+      controller: _firstNameCon,
+      decoration: const InputDecoration(
         hintText: "Firstname",
       ),
     );
   }
 
   Widget _lastNameField(BuildContext context) {
-    return const TextField(
-      decoration: InputDecoration(
+    return TextField(
+      controller: _lastNameCon,
+      decoration: const InputDecoration(
         hintText: "Lastname",
       ),
     );
