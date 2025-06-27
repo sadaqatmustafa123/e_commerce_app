@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:e_commerce_app/data/auth/models/user_signin_req.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -9,6 +10,7 @@ abstract class AuthFirebaseService {
     UserCreationReq user,
   );
   Future<Either> getAges();
+  Future<Either> signIn(UserSigninReq user);
 }
 
 class AuthFirebaseServiceImpl extends AuthFirebaseService {
@@ -56,6 +58,26 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
       );
     } catch (e) {
       return const Left("Please try again.");
+    }
+  }
+
+  @override
+  Future<Either> signIn(UserCreationReq user) async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: user.email!, password: user.password!);
+
+      return const Right("Sign in was successfull");
+    } on FirebaseAuthException catch (e) {
+      String message = "";
+      {
+        if (e.code == 'weak-password') {
+          message = 'The password provided is too weak.';
+        } else if (e.code == 'email-already-in-use') {
+          message = 'An account already exists with the same email address.';
+        }
+      }
+      return Left(message);
     }
   }
 }
