@@ -62,7 +62,7 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
   }
 
   @override
-  Future<Either> signIn(UserCreationReq user) async {
+  Future<Either> signIn(UserSigninReq user) async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: user.email!, password: user.password!);
