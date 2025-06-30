@@ -7,8 +7,6 @@ import 'package:e_commerce_app/presentation/auth/pages/signup.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-// sign in page changes
-
 class SigninPage extends StatelessWidget {
   const SigninPage({super.key});
 

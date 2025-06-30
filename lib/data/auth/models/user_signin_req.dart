@@ -4,6 +4,5 @@ class UserSigninReq {
 
   UserSigninReq({
     required this.email,
-    required this.password,
   });
 }

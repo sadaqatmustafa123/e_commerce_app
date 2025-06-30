@@ -1,12 +1,17 @@
 import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
+import 'package:e_commerce_app/data/auth/models/user_signin_req.dart';
 import 'package:e_commerce_app/presentation/auth/pages/forgot_password.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class EnterPasswordPage extends StatelessWidget {
-  const EnterPasswordPage({super.key});
+  final UserSigninReq userSigninReq;
+  const EnterPasswordPage({
+    super.key,
+    required this.userSigninReq,
+  });
 
   @override
   Widget build(BuildContext context) {
