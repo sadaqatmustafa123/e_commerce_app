@@ -114,7 +114,7 @@ class EnterPasswordPage extends StatelessWidget {
               ..onTap = () {
                 AppNavigator.push(
                   context,
-                  const ForgotPasswordPage(),
+                  ForgotPasswordPage(),
                 );
               },
             style: const TextStyle(
