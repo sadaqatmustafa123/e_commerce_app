@@ -22,8 +22,7 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  Future<Either> sendPasswordResetEmail(String email) {
-    // TODO: implement sendPasswordResetEmail
-    throw UnimplementedError();
+  Future<Either> sendPasswordResetEmail(String email) async {
+    return await sl<AuthFirebaseService>().sendPasswordResetEmail(email);
   }
 }
