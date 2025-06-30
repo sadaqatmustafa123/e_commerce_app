@@ -37,7 +37,9 @@ class EnterPasswordPage extends StatelessWidget {
                   var snackbar = SnackBar(
                     content: Text(
                       state.errorMessage,
-                      style: TextStyl,
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                     behavior: SnackBarBehavior.floating,
                   );
@@ -45,7 +47,12 @@ class EnterPasswordPage extends StatelessWidget {
                 }
                 if (state is ButtonSuccessState) {
                   var successSnackbar = const SnackBar(
-                    content: Text("Sign in successful"),
+                    content: Text(
+                      "Sign in successful",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                   );
                   ScaffoldMessenger.of(context).showSnackBar(successSnackbar);
                 }
