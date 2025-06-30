@@ -124,7 +124,7 @@ class SignUpPage extends StatelessWidget {
               ..onTap = () {
                 AppNavigator.push(
                   context,
-                  const SigninPage(),
+                  SigninPage(),
                 );
               },
             style: const TextStyle(
