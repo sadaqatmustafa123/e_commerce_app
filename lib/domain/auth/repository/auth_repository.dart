@@ -13,4 +13,5 @@ abstract class AuthRepository {
   Future<Either> sendPasswordResetEmail(
     String email,
   );
+  Future<bool> isLoggedIn();
 }

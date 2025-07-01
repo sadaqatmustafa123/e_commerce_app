@@ -14,6 +14,7 @@ abstract class AuthFirebaseService {
   Future<Either> sendPasswordResetEmail(
     String email,
   );
+  Future<bool> isLoggedIn();
 }
 
 class AuthFirebaseServiceImpl extends AuthFirebaseService {
@@ -91,6 +92,15 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
       return const Right("Password reset request sent");
     } catch (e) {
       return const Left("Password reset request not sent");
+    }
+  }
+
+  @override
+  Future<bool> isLoggedIn() async {
+    if (FirebaseAuth.instance.currentUser != null) {
+      return true;
+    } else {
+      return false;
     }
   }
 }
