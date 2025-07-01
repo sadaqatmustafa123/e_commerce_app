@@ -15,6 +15,7 @@ abstract class AuthFirebaseService {
     String email,
   );
   Future<bool> isLoggedIn();
+  Future<void> signOut();
 }
 
 class AuthFirebaseServiceImpl extends AuthFirebaseService {
@@ -102,5 +103,10 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
     } else {
       return false;
     }
+  }
+
+  @override
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
   }
 }
