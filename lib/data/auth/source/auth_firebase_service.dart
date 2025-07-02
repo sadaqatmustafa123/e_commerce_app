@@ -122,7 +122,7 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
           .get();
       return Right(userData);
     } catch (e) {
-      return const Left("Please try again");
+      return const Left("Could not fetch user data.");
     }
   }
 }
