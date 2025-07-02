@@ -35,13 +35,13 @@ class AuthRepositoryImpl extends AuthRepository {
   @override
   Future<Either> getUser() async {
     var user = await sl<AuthFirebaseService>().getUser();
-    user.fold(
+    return user.fold(
       (error) {
         return Left(error);
       },
       (data) {
         return Right(
-          UserModel.fromJson(data),
+          UserModel.fromJson(data).toEntity(),
         );
       },
     );

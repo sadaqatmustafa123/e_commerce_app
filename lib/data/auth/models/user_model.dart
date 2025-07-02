@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/domain/auth/entity/user.dart';
+
 class UserModel {
   final String userId;
   final String firstName;
@@ -13,7 +15,6 @@ class UserModel {
     required this.gender,
   });
 
-  // Deserialize from JSON
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       userId: json['userId'] as String,
@@ -24,7 +25,6 @@ class UserModel {
     );
   }
 
-  // Serialize to JSON
   Map<String, dynamic> toJson() {
     return {
       'userId': userId,
@@ -33,5 +33,17 @@ class UserModel {
       'email': email,
       'gender': gender,
     };
+  }
+}
+
+extension UserXModel on UserModel {
+  UserEntity toEntity() {
+    return UserEntity(
+      userId: userId,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      gender: gender,
+    );
   }
 }
