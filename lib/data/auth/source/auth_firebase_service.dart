@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:e_commerce_app/data/auth/models/user_signin_req.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import '../models/user_creation_req.dart';
 
@@ -16,6 +17,7 @@ abstract class AuthFirebaseService {
   );
   Future<bool> isLoggedIn();
   Future<void> signOut();
+  Future<Either> getUser();
 }
 
 class AuthFirebaseServiceImpl extends AuthFirebaseService {
@@ -108,5 +110,19 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
   @override
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
+  }
+
+  @override
+  Future<Either> getUser() async {
+    try {
+      var currentUser = FirebaseAuth.instance.currentUser;
+      var userData = FirebaseFirestore.instance
+          .collection("Users")
+          .doc(currentUser?.uid)
+          .get();
+      return Right(userData);
+    } catch (e) {
+      return const Left("Please try again");
+    }
   }
 }
