@@ -40,12 +40,12 @@ class Header extends StatelessWidget {
     return Container(
       height: 40,
       width: 40,
-      child: Icon(
-        Icons.shopping_bag,
-      ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
         color: AppColors.primary,
+      ),
+      child: const Icon(
+        Icons.shopping_bag,
       ),
     );
   }
