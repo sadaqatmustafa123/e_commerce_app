@@ -1,4 +1,6 @@
+import 'package:e_commerce_app/core/configs/assets/app_images.dart';
 import 'package:e_commerce_app/core/configs/themes/app_colors.dart';
+import 'package:e_commerce_app/domain/auth/entity/user.dart';
 import 'package:e_commerce_app/presentation/home/bloc/user_info_display_cubit.dart';
 import 'package:e_commerce_app/presentation/home/bloc/user_info_display_state.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +22,9 @@ class Header extends StatelessWidget {
             return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _profileImage(),
+                _profileImage(
+                  state.user,
+                ),
                 _gender(),
                 _card(),
               ],
@@ -32,12 +36,19 @@ class Header extends StatelessWidget {
     );
   }
 
-  Widget _profileImage() {
+  Widget _profileImage(UserEntity user) {
     return Container(
       height: 40,
       width: 40,
-      decoration:
-          const BoxDecoration(color: Colors.red, shape: BoxShape.circle),
+      decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.7),
+          shape: BoxShape.circle,
+          image: DecorationImage(
+              image: user.image.isEmpty
+                  ? const AssetImage(
+                      AppImages.profile,
+                    )
+                  : NetworkImage(user.image))),
     );
   }
 

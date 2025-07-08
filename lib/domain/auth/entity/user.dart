@@ -4,6 +4,7 @@ class UserEntity {
   final String lastName;
   final String email;
   final int gender;
+  final String image;
 
   UserEntity({
     required this.userId,
@@ -11,6 +12,6 @@ class UserEntity {
     required this.lastName,
     required this.email,
     required this.gender,
-    required String image,
+    required this.image,
   });
 }
