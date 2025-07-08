@@ -1,5 +1,3 @@
-import 'package:e_commerce_app/data/auth/source/auth_firebase_service.dart';
-import 'package:e_commerce_app/domain/usecases/get_user_usecase.dart';
 import 'package:e_commerce_app/presentation/home/widgets/header.dart';
 import 'package:flutter/material.dart';
 
