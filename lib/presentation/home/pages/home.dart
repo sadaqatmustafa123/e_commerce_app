@@ -1,13 +1,9 @@
 import 'package:e_commerce_app/common/bloc/button/button_state_cubit.dart';
 import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
-import 'package:e_commerce_app/presentation/auth/pages/signin.dart';
 import 'package:e_commerce_app/presentation/home/widgets/header.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../common/bloc/button/button_state.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
