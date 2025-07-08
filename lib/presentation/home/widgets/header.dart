@@ -25,7 +25,7 @@ class Header extends StatelessWidget {
                 _profileImage(
                   state.user,
                 ),
-                _gender(),
+                _gender(state.user),
                 _card(),
               ],
             );
@@ -52,7 +52,7 @@ class Header extends StatelessWidget {
     );
   }
 
-  Widget _gender() {
+  Widget _gender(UserEntity user) {
     return Container(
       height: 40,
       width: 70,
@@ -60,6 +60,15 @@ class Header extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
         color: AppColors.secondBackground,
       ),
+      child: Center(
+          child: user.gender == 1
+              ? const Text(
+                  "Man",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              : const Text("Women")),
     );
   }
 
