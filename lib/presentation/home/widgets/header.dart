@@ -54,8 +54,10 @@ class Header extends StatelessWidget {
 
   Widget _gender(UserEntity user) {
     return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ),
       height: 40,
-      width: 70,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
         color: AppColors.secondBackground,
