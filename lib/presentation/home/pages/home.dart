@@ -16,6 +16,9 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               Header(),
+              const SizedBox(
+                height: 10,
+              ),
               SearchField(),
             ],
           ),

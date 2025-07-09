@@ -18,6 +18,8 @@ class SearchField extends StatelessWidget {
             borderRadius: BorderRadius.circular(50),
           ),
           prefixIcon: SvgPicture.asset(
+            height: 10,
+            width: 50,
             AppVectors.search,
             fit: BoxFit.none,
           ),
