@@ -2,15 +2,16 @@ import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
 import 'package:e_commerce_app/common/widgets/button/login_with_social_button.dart';
 import 'package:e_commerce_app/core/configs/app_logos.dart';
+import 'package:e_commerce_app/data/auth/models/user_signin_req.dart';
 import 'package:e_commerce_app/presentation/auth/pages/enter_password.dart';
 import 'package:e_commerce_app/presentation/auth/pages/signup.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-// sign in page changes
-
 class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+  SigninPage({super.key});
+
+  final TextEditingController _emailCon = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -81,8 +82,9 @@ class SigninPage extends StatelessWidget {
   }
 
   Widget _emailField(BuildContext context) {
-    return const TextField(
-      decoration: InputDecoration(
+    return TextField(
+      controller: _emailCon,
+      decoration: const InputDecoration(
         hintText: "Enter email",
       ),
     );
@@ -121,7 +123,11 @@ class SigninPage extends StatelessWidget {
       onPressed: () {
         AppNavigator.push(
           context,
-          const EnterPasswordPage(),
+          EnterPasswordPage(
+            userSigninReq: UserSigninReq(
+              email: _emailCon.text,
+            ),
+          ),
         );
       },
       title: "Continue",
