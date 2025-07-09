@@ -1,6 +1,9 @@
 import 'package:e_commerce_app/data/auth/repository/auth_repository_impl.dart';
 import 'package:e_commerce_app/data/auth/source/auth_firebase_service.dart';
+import 'package:e_commerce_app/data/category/repository/category_repository_impl.dart';
+import 'package:e_commerce_app/data/category/source/category_firebase_service.dart';
 import 'package:e_commerce_app/domain/auth/repository/auth_repository.dart';
+import 'package:e_commerce_app/domain/category/repository/category_repository.dart';
 import 'package:e_commerce_app/domain/usecases/get_ages_usecase.dart';
 import 'package:e_commerce_app/domain/usecases/get_user_usecase.dart';
 import 'package:e_commerce_app/domain/usecases/is_logged_in.dart';
@@ -17,10 +20,18 @@ Future<void> initializeDependencies() async {
     AuthFirebaseServiceImpl(),
   );
 
+  sl.registerSingleton<CategoryFirebaseService>(
+    CategoryFirebaseServiceImpl(),
+  );
+
   // Repositories
 
   sl.registerSingleton<AuthRepository>(
     AuthRepositoryImpl(),
+  );
+
+  sl.registerSingleton<CategoryRepository>(
+    CategoryRepositoryImpl(),
   );
 
   // Usecases
