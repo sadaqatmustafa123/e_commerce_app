@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../../../core/configs/app_vectors.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({super.key});
@@ -17,12 +14,7 @@ class SearchField extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(50),
           ),
-          prefixIcon: SvgPicture.asset(
-            height: 10,
-            width: 50,
-            AppVectors.search,
-            fit: BoxFit.none,
-          ),
+          prefixIcon: const Icon(Icons.search),
           hintText: 'Search'),
     );
   }

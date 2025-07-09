@@ -4,6 +4,7 @@ import 'package:e_commerce_app/data/category/repository/category_repository_impl
 import 'package:e_commerce_app/data/category/source/category_firebase_service.dart';
 import 'package:e_commerce_app/domain/auth/repository/auth_repository.dart';
 import 'package:e_commerce_app/domain/category/repository/category_repository.dart';
+import 'package:e_commerce_app/domain/category/usecases/get_category_usecase.dart';
 import 'package:e_commerce_app/domain/usecases/get_ages_usecase.dart';
 import 'package:e_commerce_app/domain/usecases/get_user_usecase.dart';
 import 'package:e_commerce_app/domain/usecases/is_logged_in.dart';
@@ -58,5 +59,9 @@ Future<void> initializeDependencies() async {
 
   sl.registerSingleton<GetUserUsecase>(
     GetUserUsecase(),
+  );
+
+  sl.registerSingleton<GetCategoryUsecase>(
+    GetCategoryUsecase(),
   );
 }
