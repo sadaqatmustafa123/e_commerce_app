@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/common/bloc/categories/categories_display_cubit.dart';
 import 'package:e_commerce_app/common/bloc/categories/categories_display_state.dart';
+import 'package:e_commerce_app/common/helper/image_display_helper.dart';
 import 'package:e_commerce_app/domain/category/entity/category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -61,7 +62,13 @@ class CategoriesWidget extends StatelessWidget {
           return Column(
             children: [
               Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                          ImageDisplayHelper.generateCategoryImageUrl(
+                        categories[index].image,
+                      ))),
                   color: Colors.white,
                   shape: BoxShape.circle,
                 ),
