@@ -83,3 +83,5 @@ class CategoriesWidget extends StatelessWidget {
     );
   }
 }
+
+// Add images to firebase storage
