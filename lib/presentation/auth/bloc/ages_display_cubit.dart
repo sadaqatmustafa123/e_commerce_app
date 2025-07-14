@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/domain/usecases/get_ages_usecase.dart';
+import 'package:e_commerce_app/domain/auth/usecases/get_ages_usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../service_locator.dart';

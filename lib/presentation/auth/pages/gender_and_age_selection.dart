@@ -9,7 +9,7 @@ import '../../../common/widgets/appbar/app_bar.dart';
 import '../../../common/widgets/button/basic_reactive_button.dart';
 import '../../../core/configs/themes/app_colors.dart';
 import '../../../data/auth/models/user_creation_req.dart';
-import '../../../domain/usecases/signup_usecase.dart';
+import '../../../domain/auth/usecases/signup_usecase.dart';
 import '../bloc/age_selection_cubit.dart';
 import '../bloc/ages_display_cubit.dart';
 import '../bloc/gender_selection_cubit.dart';

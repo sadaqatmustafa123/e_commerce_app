@@ -3,7 +3,7 @@ import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_reactive_button.dart';
 import 'package:e_commerce_app/data/auth/models/user_signin_req.dart';
-import 'package:e_commerce_app/domain/usecases/signin_usecase.dart';
+import 'package:e_commerce_app/domain/auth/usecases/signin_usecase.dart';
 import 'package:e_commerce_app/presentation/auth/pages/forgot_password.dart';
 import 'package:e_commerce_app/presentation/home/pages/home.dart';
 import 'package:flutter/gestures.dart';

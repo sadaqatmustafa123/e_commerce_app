@@ -5,12 +5,12 @@ import 'package:e_commerce_app/data/category/source/category_firebase_service.da
 import 'package:e_commerce_app/domain/auth/repository/auth_repository.dart';
 import 'package:e_commerce_app/domain/category/repository/category_repository.dart';
 import 'package:e_commerce_app/domain/category/usecases/get_category_usecase.dart';
-import 'package:e_commerce_app/domain/usecases/get_ages_usecase.dart';
-import 'package:e_commerce_app/domain/usecases/get_user_usecase.dart';
-import 'package:e_commerce_app/domain/usecases/is_logged_in.dart';
-import 'package:e_commerce_app/domain/usecases/send_password_reset_email.dart';
-import 'package:e_commerce_app/domain/usecases/signin_usecase.dart';
-import 'package:e_commerce_app/domain/usecases/signup_usecase.dart';
+import 'package:e_commerce_app/domain/auth/usecases/get_ages_usecase.dart';
+import 'package:e_commerce_app/domain/auth/usecases/get_user_usecase.dart';
+import 'package:e_commerce_app/domain/auth/usecases/is_logged_in.dart';
+import 'package:e_commerce_app/domain/auth/usecases/send_password_reset_email.dart';
+import 'package:e_commerce_app/domain/auth/usecases/signin_usecase.dart';
+import 'package:e_commerce_app/domain/auth/usecases/signup_usecase.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;

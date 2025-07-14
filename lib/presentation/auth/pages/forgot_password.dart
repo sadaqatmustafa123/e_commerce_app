@@ -2,7 +2,7 @@ import 'package:e_commerce_app/common/bloc/button/button_state_cubit.dart';
 import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
 import 'package:e_commerce_app/common/widgets/button/basic_reactive_button.dart';
-import 'package:e_commerce_app/domain/usecases/send_password_reset_email.dart';
+import 'package:e_commerce_app/domain/auth/usecases/send_password_reset_email.dart';
 import 'package:e_commerce_app/presentation/auth/pages/reset_email_sent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

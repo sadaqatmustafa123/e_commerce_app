@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/domain/usecases/get_user_usecase.dart';
+import 'package:e_commerce_app/domain/auth/usecases/get_user_usecase.dart';
 import 'package:e_commerce_app/presentation/home/bloc/user_info_display_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
