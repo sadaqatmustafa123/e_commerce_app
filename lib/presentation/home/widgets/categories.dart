@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/common/bloc/categories/categories_display_cubit.dart';
 import 'package:e_commerce_app/common/bloc/categories/categories_display_state.dart';
+import 'package:e_commerce_app/domain/category/entity/category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,7 +20,9 @@ class CategoriesWidget extends StatelessWidget {
             return Column(
               children: [
                 _seeAll(),
-                _categories(context),
+                _categories(
+                  categoriesState.categories,
+                ),
               ],
             );
           }
@@ -48,7 +51,7 @@ class CategoriesWidget extends StatelessWidget {
     );
   }
 
-  Widget _categories(BuildContext context) {
+  Widget _categories(List<CategoryEntity> categories) {
     return SizedBox(
       height: 100,
       child: ListView.separated(
@@ -68,12 +71,14 @@ class CategoriesWidget extends StatelessWidget {
               const SizedBox(
                 height: 08,
               ),
-              const Text("Text"),
+              Text(
+                categories[index].title,
+              ),
             ],
           );
         },
         scrollDirection: Axis.horizontal,
-        itemCount: 10,
+        itemCount: categories.length,
       ),
     );
   }
