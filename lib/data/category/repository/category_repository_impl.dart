@@ -3,6 +3,7 @@ import 'package:e_commerce_app/data/category/source/category_firebase_service.da
 import 'package:e_commerce_app/domain/category/repository/category_repository.dart';
 
 import '../../../service_locator.dart';
+import '../models/category_model.dart';
 
 class CategoryRepositoryImpl extends CategoryRepository {
   @override
@@ -11,7 +12,11 @@ class CategoryRepositoryImpl extends CategoryRepository {
     return categories.fold((error) {
       return Left(error);
     }, (data) {
-      return Right(data);
+      return Right(
+        List.from(data)
+            .map((e) => CategoryModel.fromMap(e).toEntity())
+            .toList(),
+      );
     });
   }
 }
