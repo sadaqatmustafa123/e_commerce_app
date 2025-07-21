@@ -1,3 +1,23 @@
-abstract class ProductFirebaseService {}
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
 
-class ProductFirebaseServiceImpl extends ProductFirebaseService {}
+abstract class ProductFirebaseService {
+  Future<Either> getTopSelling();
+}
+
+class ProductFirebaseServiceImpl extends ProductFirebaseService {
+  @override
+  Future<Either> getTopSelling() async {
+    try {
+      var returnedData = await FirebaseFirestore.instance
+          .collection(
+            'Products',
+          )
+          .where("salesNumber", isGreaterThanOrEqualTo: 20)
+          .get();
+      return Right(returnedData);
+    } catch (e) {
+      return const Left("Please try again");
+    }
+  }
+}
