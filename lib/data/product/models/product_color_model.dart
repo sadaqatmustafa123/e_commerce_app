@@ -1,3 +1,5 @@
+import '../../../domain/products/entitites/product_color_entity.dart';
+
 class ProductColorModel {
   final String title;
   final List<int> rgb;
