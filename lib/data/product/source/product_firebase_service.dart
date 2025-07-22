@@ -15,7 +15,9 @@ class ProductFirebaseServiceImpl extends ProductFirebaseService {
           )
           .where("salesNumber", isGreaterThanOrEqualTo: 20)
           .get();
-      return Right(returnedData);
+      return Right(
+        returnedData.docs.map((e) => e.data()).toList(),
+      );
     } catch (e) {
       return const Left("Please try again");
     }
