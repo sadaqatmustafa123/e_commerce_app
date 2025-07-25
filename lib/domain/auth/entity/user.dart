@@ -15,3 +15,4 @@ class UserEntity {
     required this.image,
   });
 }
+// domain layer acts as medium wall 
