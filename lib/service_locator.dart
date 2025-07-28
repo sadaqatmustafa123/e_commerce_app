@@ -14,6 +14,7 @@ import 'package:e_commerce_app/domain/auth/usecases/send_password_reset_email.da
 import 'package:e_commerce_app/domain/auth/usecases/signin_usecase.dart';
 import 'package:e_commerce_app/domain/auth/usecases/signup_usecase.dart';
 import 'package:e_commerce_app/domain/products/repositories/product_repository.dart';
+import 'package:e_commerce_app/domain/products/usecases/get_top_selling_usecase.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -74,5 +75,9 @@ Future<void> initializeDependencies() async {
 
   sl.registerSingleton<GetCategoryUsecase>(
     GetCategoryUsecase(),
+  );
+
+  sl.registerSingleton<GetTopSellingUsecase>(
+    GetTopSellingUsecase(),
   );
 }
