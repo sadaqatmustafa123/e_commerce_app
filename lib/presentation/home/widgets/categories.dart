@@ -73,7 +73,7 @@ class CategoriesWidget extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 height: 50,
-                width: 50,
+                width: 60,
               ),
               const SizedBox(
                 height: 08,
