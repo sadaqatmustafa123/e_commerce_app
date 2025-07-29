@@ -6,6 +6,6 @@ class ImageDisplayHelper {
   }
 
   static String generatePrductImageUrl(String title) {
-    return AppUrls.categoryImage + title + AppUrls.alt;
+    return AppUrls.productImage + title + AppUrls.alt;
   }
 }
