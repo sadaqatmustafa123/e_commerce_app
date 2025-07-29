@@ -1,6 +1,9 @@
-import 'package:flutter/foundation.dart';
+import 'package:e_commerce_app/presentation/home/bloc/top_selling_display_cubit.dart';
+import 'package:e_commerce_app/presentation/home/bloc/top_selling_display_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common/widgets/product/product_card.dart';
 import '../../../domain/products/entitites/product_entity.dart';
 
 class TopSelling extends StatelessWidget {
@@ -8,16 +11,29 @@ class TopSelling extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        _topSelling(),
-        SizedBox(
-          height: 20,
-        ),
-        _products(),
-      ],
+    return BlocProvider<TopSellingDisplayCubit>(
+      create: (context) => TopSellingDisplayCubit()..displayProducts(),
+      child: BlocBuilder<TopSellingDisplayCubit, TopSellingDisplayState>(
+        builder: (context, state) {
+          if (state is ProductsLoading) {
+            return const CircularProgressIndicator();
+          }
+          if (state is ProductsLoaded) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                _topSelling(),
+                const SizedBox(
+                  height: 20,
+                ),
+                _products(state.products),
+              ],
+            );
+          }
+          return Container();
+        },
+      ),
     );
   }
 
@@ -54,4 +70,3 @@ class TopSelling extends StatelessWidget {
     );
   }
 }
-//z5je
