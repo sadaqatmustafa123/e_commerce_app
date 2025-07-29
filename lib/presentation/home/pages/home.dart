@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/presentation/home/widgets/categories.dart';
 import 'package:e_commerce_app/presentation/home/widgets/header.dart';
 import 'package:e_commerce_app/presentation/home/widgets/search_field.dart';
+import 'package:e_commerce_app/presentation/home/widgets/top_selling.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -28,6 +29,7 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 14,
               ),
+              TopSelling(),
             ],
           ),
         ),

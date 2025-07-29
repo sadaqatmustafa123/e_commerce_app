@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:e_commerce_app/data/product/models/product_model.dart';
 
 abstract class ProductFirebaseService {
   Future<Either> getTopSelling();
@@ -16,7 +17,7 @@ class ProductFirebaseServiceImpl extends ProductFirebaseService {
           .where("salesNumber", isGreaterThanOrEqualTo: 20)
           .get();
       return Right(
-        returnedData.docs.map((e) => e.data()).toList(),
+        returnedData.docs.map((e) => ProductModel.fromMap(e.data())).toList(),
       );
     } catch (e) {
       return const Left("Please try again");
